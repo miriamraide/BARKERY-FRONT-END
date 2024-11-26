@@ -28,7 +28,7 @@ export default function ProductItem({ product }) {
             className="flex justify-around p-2"
           >
             <button className="rounded-xl text-blue-600 bg-yellow-400 font-bold p-2">
-              View product
+              COMPRAR
             </button>
           </Link>
         </div>

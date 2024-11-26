@@ -70,7 +70,7 @@ export default function ProductScreen() {
                     className="btn btn-primary"
                     onClick={addToCartHandler}
                   >
-                    Add to Cart
+                    Agregar al Carrito
                   </button>
                 </div>
               </div>
