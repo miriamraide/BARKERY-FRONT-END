@@ -22,8 +22,8 @@ body {
 }
 
 .card image {
-  width: 300px;
-  height: 350px;
+  width: 200px;
+  height: 250px;
 }
 
 .card button {
@@ -46,6 +46,17 @@ a {
   text-decoration: none;
 }
 
+/* Regla específica para los enlaces en la navbar */
+.navbar-link {
+  color: white; /* Asegúrate de que los enlaces son blancos */
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  color: #FFA400; /* Color naranja cuando se pasa el mouse */
+  text-decoration: underline; /* Añadir subrayado solo en hover */
+}
+
 * {
   box-sizing: border-box;
 }
@@ -56,3 +67,4 @@ a {
   width: 100%;
   height: 600px;
 }
+

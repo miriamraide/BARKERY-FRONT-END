@@ -1,3 +1,4 @@
+
 import React, { useContext } from "react";
 import Link from "next/link";
 
@@ -14,14 +15,19 @@ export default function Cart() {
     dispatch({ type: "CART_REMOVE_ITEM", payload: item });
   };
 
-  //funcion para actualizar el carrito
+  // Funcion para actualizar el carrito
   const updateCartHandler = (item, qty) => {
     const quantity = Number(qty);
-    dispatch({ type: "CARD_ADD_ITEM", payload: { ...item, quantity } });
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
+  };
+
+  // Función para calcular el total
+  const getTotal = () => {
+    return cartItems.reduce((a, c) => a + c.quantity * c.price, 0);
   };
 
   return (
-    <Layout title={"shopping cart"}>
+    <Layout title={"Shopping Cart"}>
       <h2 className="text-center">Shopping Cart</h2>
       <div className="container">
         {cartItems.length === 0 ? (
@@ -43,7 +49,7 @@ export default function Cart() {
                 {cartItems.map((item) => (
                   <tr key={item.id}>
                     <td>
-                      <img src={item.image} width={70} height={70} alt="" />
+                      <img src={item.image} width={150} height={150} alt="" />
                       &nbsp;
                       {item.name}
                     </td>
@@ -66,7 +72,7 @@ export default function Cart() {
                     <td>{item.price}$</td>
                     <td>
                       <button
-                        className="lg:hidden text-white text-xl bg-blue-600 rounded-xl"
+                        className="text-white text-xl bg-blue-600 rounded-xl"
                         onClick={() => removeCartHandler(item)}
                       >
                         X
@@ -80,7 +86,16 @@ export default function Cart() {
             <div>
               <div>
                 Subtotal: ({cartItems.reduce((a, c) => a + c.quantity, 0)}) : $
-                {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
+                {getTotal()}
+              </div>
+
+              <div className="text-center mt-4">
+                {/* Aquí agregamos el botón de Checkout */}
+                <Link href="/checkout">
+                  <button className="bg-blue-500 text-white py-2 px-4 rounded-lg">
+                    Verificacion de Compra
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
